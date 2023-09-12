@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS ranks (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  jp_name VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS materials (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  rank_id INT REFERENCES ranks(id),
+  money_cost INT DEFAULT NULL,
+  stamina_cost INT DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS material_recipes (
+  id SERIAL PRIMARY KEY,
+  res_mat_id INT REFERENCES materials(id),
+  needed_mat_id INT REFERENCES materials(id),
+  quantity INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
