@@ -1,3 +1,5 @@
+-- postgresQL 用の構文
+
 INSERT INTO ranks (id, name, jp_name)
 VALUES
   (1, 'common', '基礎'),
