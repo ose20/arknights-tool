@@ -4,8 +4,8 @@ VALUES
   (2, 'basic', '初級'),
   (3, 'intermediate', '中級'),
   (4, 'advanced', '上級'),
-  (5, 'epic', '高級')
-ON CONFLICT(id) DO NOTHING;
+  (5, 'epic', '高級');
+
 
 INSERT INTO materials (id, name, rank_id, money_cost, stamina_cost)
 VALUES
@@ -57,8 +57,8 @@ VALUES
   (46, 'ナノフレーク', 5, 400, 8),
   (47, '融合剤', 5, 400, 8),
   (48, '結晶制御装置', 5, 400, 8),
-  (49, '焼結核凝晶', 5, 400, 8)
-ON CONFLICT(id) DO NOTHING;
+  (49, '焼結核凝晶', 5, 400, 8);
+
 
 INSERT INTO material_recipes (id, res_mat_id, needed_mat_id, quantity)
 VALUES
@@ -133,5 +133,4 @@ VALUES
   (69, 48, 34, 1),
   (70, 49, 38, 1),
   (71, 49, 37, 1),
-  (72, 49, 36, 2)
-ON CONFLICT(id) DO NOTHING;
+  (72, 49, 36, 2);

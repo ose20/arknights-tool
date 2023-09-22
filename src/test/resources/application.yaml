@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:/data.sql # これがないと postgresql用のmain/resource/data.sql が呼ばれてエラーになる
+
+logging.level.org.springframework.web: DEBUG
+
