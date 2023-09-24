@@ -60,9 +60,9 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.6</version>
-			<scope>compile</scope>
+			<version>1.7.0</version>
 		</dependency>
+
 
 	</dependencies>
 
