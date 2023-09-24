@@ -1,7 +1,6 @@
 package dev.ose20.arknightstool.dto;
 
 import lombok.Data;
-import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitialization;
 
 import java.util.List;
 
