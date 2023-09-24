@@ -1,8 +1,7 @@
 package dev.ose20.arknightstool.controller;
 
-import dev.ose20.arknightstool.dto.Material;
-import dev.ose20.arknightstool.service.MaterialSvc;
-import dev.ose20.arknightstool.util.TestUtil;
+import dev.ose20.arknightstool.dto.Rank;
+import dev.ose20.arknightstool.service.RankSvc;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -17,46 +16,43 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.hamcrest.Matchers.*;
 
 
-@WebMvcTest(MaterialRestController.class)
-class MaterialRestControllerTest {
-
+@WebMvcTest(RankRestController.class)
+public class RankRestControllerTest {
     @Autowired
     private MockMvc mockMvc;
-
     @MockBean
-    private MaterialSvc materialSvc;
+    private RankSvc rankSvc;
 
     @Test
     void getMaterials() throws Exception {
-        Material m1 = TestUtil.someMaterial();
-        Material m2 = TestUtil.someMaterial();
+        var r1 = new Rank().id(1L).name("common").jpName("基礎");
+        var r2 = new Rank().id(2L).name("basic").jpName("初級");
 
-        when(materialSvc.findAll()).thenReturn(Arrays.asList(m1, m2));
+        when(rankSvc.findAll()).thenReturn(Arrays.asList(r1, r2));
 
-        mockMvc.perform(get("/v1/s/materials"))
+        mockMvc.perform(get("/v1/s/ranks"))
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$", hasSize(2)))
-            .andExpect(jsonPath("$[0].name").value(m1.getName()))
-            .andExpect(jsonPath("$[1].name").value(m2.getName()))
-            ;
+            .andExpect(jsonPath("$[0].name").value(r1.getName()))
+            .andExpect(jsonPath("$[1].name").value(r2.getName()))
+        ;
 
-        verify(materialSvc, times(1)).findAll();
-
+        verify(rankSvc, times(1)).findAll();
     }
 
     @Test
     void getMaterial() throws Exception {
-        Material m = TestUtil.someMaterial();
+        var r = new Rank().id(1L).name("epic").jpName("高級");
 
-        when(materialSvc.findById(10L)).thenReturn(m);
+        when(rankSvc.findById(1L)).thenReturn(r);
 
-        mockMvc.perform(get("/v1/s/materials/10"))
+        mockMvc.perform(get("/v1/s/ranks/1"))
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json"))
-            .andExpect(jsonPath("$.name").value(m.getName()))
-            ;
+            .andExpect(jsonPath("$.name").value(r.getName()))
+        ;
 
-        verify(materialSvc, times(1)).findById(10L);
+        verify(rankSvc, times(1)).findById(1L);
     }
 }

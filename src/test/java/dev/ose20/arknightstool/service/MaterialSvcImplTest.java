@@ -2,19 +2,12 @@ package dev.ose20.arknightstool.service;
 
 import dev.ose20.arknightstool.dto.Material;
 import dev.ose20.arknightstool.repository.MaterialRepo;
-import dev.ose20.arknightstool.repository.MaterialRepoImpl;
-import dev.ose20.arknightstool.repository.MaterialRepoTest;
 import dev.ose20.arknightstool.util.TestUtil;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
