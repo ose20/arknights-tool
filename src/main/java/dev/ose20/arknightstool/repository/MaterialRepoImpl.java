@@ -2,7 +2,7 @@ package dev.ose20.arknightstool.repository;
 
 import dev.ose20.arknightstool.dto.Material;
 import dev.ose20.arknightstool.dto.MaterialDetail;
-import dev.ose20.arknightstool.dto.MaterialDetail.RequiredMaterial;
+import dev.ose20.arknightstool.dto.RequiredMaterial;
 import dev.ose20.arknightstool.exception.ResourceNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.DataClassRowMapper;
