@@ -2,11 +2,10 @@ package dev.ose20.arknightstool.controller;
 
 import dev.ose20.arknightstool.dto.Material;
 import dev.ose20.arknightstool.dto.MaterialDetail;
+import dev.ose20.arknightstool.dto.RequiredMaterial;
+import dev.ose20.arknightstool.dto.Selection;
 import dev.ose20.arknightstool.service.MaterialSvc;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,5 +30,10 @@ public class MaterialRestController {
     @GetMapping("/detail/{id}")
     public MaterialDetail getMaterialDetail(@PathVariable Long id) {
         return materialSvc.findDetailById(id);
+    }
+
+    @PostMapping("/calculation")
+    public List<RequiredMaterial> decomposeAndCalcMaterials(@RequestBody List<RequiredMaterial> requiredMaterials) {
+        return materialSvc.decomposeAndCalc(requiredMaterials);
     }
 }

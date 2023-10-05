@@ -14,6 +14,7 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.*;
 
 @JdbcTest
+//@ActiveProfiles("test")
 public class MaterialRepoTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
