@@ -2,6 +2,7 @@ package dev.ose20.arknightstool.service;
 
 import dev.ose20.arknightstool.dto.Material;
 import dev.ose20.arknightstool.dto.MaterialDetail;
+import dev.ose20.arknightstool.dto.RequiredMaterial;
 import dev.ose20.arknightstool.repository.MaterialRepo;
 import dev.ose20.arknightstool.util.TestUtil;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,13 +14,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import static org.assertj.core.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class MaterialSvcImplTest {
+class MaterialSvcTest {
 
     MaterialSvc materialSvc;
 
@@ -60,9 +60,9 @@ class MaterialSvcImplTest {
         var expect = new MaterialDetail()
             .material(new Material().id(40L).name("上級装置").rankId(4L).moneyCost(300L).staminaCost(4L))
             .requiredMaterials(Arrays.asList(
-                new MaterialDetail.RequiredMaterial().materialId(24L).name("中級装置").quantity(1),
-                new MaterialDetail.RequiredMaterial().materialId(23L).name("中級源岩").quantity(2),
-                new MaterialDetail.RequiredMaterial().materialId(15L).name("砥石").quantity(1)
+                new RequiredMaterial().materialId(24L).name("中級装置").quantity(1),
+                new RequiredMaterial().materialId(23L).name("中級源岩").quantity(2),
+                new RequiredMaterial().materialId(15L).name("砥石").quantity(1)
             ));
 
         when(materialRepo.selectDetailById(40L)).thenReturn(expect);

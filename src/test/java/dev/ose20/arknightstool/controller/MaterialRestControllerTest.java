@@ -2,6 +2,7 @@ package dev.ose20.arknightstool.controller;
 
 import dev.ose20.arknightstool.dto.Material;
 import dev.ose20.arknightstool.dto.MaterialDetail;
+import dev.ose20.arknightstool.dto.RequiredMaterial;
 import dev.ose20.arknightstool.service.MaterialSvc;
 import dev.ose20.arknightstool.util.TestUtil;
 import org.junit.jupiter.api.Test;
@@ -67,9 +68,9 @@ class MaterialRestControllerTest {
         var md = new MaterialDetail()
             .material(new Material().id(40L).name("上級装置").rankId(4L).moneyCost(300L).staminaCost(4L))
             .requiredMaterials(Arrays.asList(
-                new MaterialDetail.RequiredMaterial().materialId(24L).name("中級装置").quantity(1),
-                new MaterialDetail.RequiredMaterial().materialId(23L).name("中級源岩").quantity(2),
-                new MaterialDetail.RequiredMaterial().materialId(15L).name("砥石").quantity(1)
+                new RequiredMaterial().materialId(24L).name("中級装置").quantity(1),
+                new RequiredMaterial().materialId(23L).name("中級源岩").quantity(2),
+                new RequiredMaterial().materialId(15L).name("砥石").quantity(1)
             ));
 
         when(materialSvc.findDetailById(40L)).thenReturn(md);
